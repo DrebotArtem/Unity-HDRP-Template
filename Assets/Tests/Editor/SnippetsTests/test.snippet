@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Test</Title>
+			<Shortcut>test</Shortcut>
+            <Description>UnitTests</Description>
+            <Author>Drebot</Author>
+        </Header>
+        <Snippet>
+			<Declarations>
+				<Literal>
+					<ID>act</ID>
+					<Default>act</Default>
+					<ToolTip>Действие, которое проверяем</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>arrage</ID>
+					<Default>arrage</Default>
+					<ToolTip>Установка всех условий</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>assert</ID>
+					<Default>assert</Default>
+					<ToolTip>Проверяем результат</ToolTip>
+				</Literal>
+			</Declarations>
+            <Code Language="csharp">
+                <![CDATA[
+        [Test]
+		public void When$act$_And$arrage$_Then$assert$()
+		{
+			// Arrage.
+			
+			// Act.
+			
+			// Assert.
+		}]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

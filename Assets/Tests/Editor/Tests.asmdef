@@ -1,0 +1,28 @@
+{
+    "name": "Tests",
+    "rootNamespace": "",
+    "references": [
+        "DemoProject",
+        "Zenject",
+        "Zenject-TestFramework",
+        "UnityEditor.TestRunner",
+        "BoundfoxStudios.FluentAssertions"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll",
+        "Zenject-usage.dll",
+        "Entitas.dll",
+        "Castle.Core.dll",
+        "NSubstitute.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
