@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e2e9a69c7cd3442b6881a26e399182, type: 3}
+  m_Name: ScriptbaleObjectInstaller
+  m_EditorClassIdentifier: 
+  GameScenesCatalogue: {fileID: 11400000, guid: 0aff2c8b3acb85c498316ddbac09738b,
+    type: 2}
+  AssetsCatalogue: {fileID: 11400000, guid: 4ff0b89524cb4e6428ec1273e6714fec, type: 2}
+  GameConfig: {fileID: 11400000, guid: 7297b443f43691147a26dccbae186f1b, type: 2}
+  PlayerConfig: {fileID: 11400000, guid: 895e35d4cf2ddd844bba902302ed01e9, type: 2}

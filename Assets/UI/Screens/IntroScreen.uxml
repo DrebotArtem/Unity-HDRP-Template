@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="intro-screen-background" style="width: 100%; height: 100%; background-color: rgba(38, 38, 38, 0); flex-direction: column; justify-content: flex-end; align-items: center;">
+        <ui:VisualElement name="Iabel-background" style="width: 60%; align-items: center; justify-content: space-around; height: 10%; background-color: rgba(0, 0, 0, 0.49); flex-shrink: 0; flex-basis: auto; bottom: 10%;">
+            <ui:Label text="IntroScreen - press Space to continue" display-tooltip-when-elided="true" name="label-intro-screen" enable-rich-text="true" focusable="false" usage-hints="None" style="-unity-text-align: middle-center; align-items: stretch; background-color: rgba(0, 0, 0, 0); color: rgb(255, 255, 255); -unity-text-outline-color: rgb(0, 0, 0); -unity-background-image-tint-color: rgb(255, 255, 255); font-size: 70%; width: auto; height: auto; flex-shrink: 1; -unity-background-scale-mode: scale-to-fit; -unity-font: none; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

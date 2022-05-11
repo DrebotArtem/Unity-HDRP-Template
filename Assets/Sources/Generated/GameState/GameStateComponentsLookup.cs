@@ -8,15 +8,36 @@
 //------------------------------------------------------------------------------
 public static class GameStateComponentsLookup {
 
+    public const int Destroyed = 0;
+    public const int GameStateDestroyedListener = 1;
+    public const int LoadedOperations = 2;
+    public const int LoadedProvider = 3;
+    public const int LoadingProvider = 4;
+    public const int StatusProvider = 5;
+    public const int UnloadProviderAfterLoad = 6;
+    public const int UnloadProvider = 7;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 8;
 
     public static readonly string[] componentNames = {
-
+        "Destroyed",
+        "GameStateDestroyedListener",
+        "LoadedOperations",
+        "LoadedProvider",
+        "LoadingProvider",
+        "StatusProvider",
+        "UnloadProviderAfterLoad",
+        "UnloadProvider"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(DestroyedComponent),
+        typeof(GameStateDestroyedListenerComponent),
+        typeof(LoadedOperationsComponent),
+        typeof(LoadedProviderComponent),
+        typeof(LoadingProviderComponent),
+        typeof(StatusProviderComponent),
+        typeof(UnloadProviderAfterLoadComponent),
+        typeof(UnloadProviderComponent)
     };
 }

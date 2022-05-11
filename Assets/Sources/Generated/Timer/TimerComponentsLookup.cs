@@ -8,15 +8,18 @@
 //------------------------------------------------------------------------------
 public static class TimerComponentsLookup {
 
+    public const int Destroyed = 0;
+    public const int TimerDestroyedListener = 1;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 2;
 
     public static readonly string[] componentNames = {
-
+        "Destroyed",
+        "TimerDestroyedListener"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(DestroyedComponent),
+        typeof(TimerDestroyedListenerComponent)
     };
 }
