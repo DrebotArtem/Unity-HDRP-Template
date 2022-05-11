@@ -32,6 +32,7 @@
 - [ ] Input System
 - [ ] UI
 - [ ] Save System
+- [x] Loading System
 - [x] Unit Tests
 
 ## Author
