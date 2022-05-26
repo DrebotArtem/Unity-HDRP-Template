@@ -1,16 +1,24 @@
-using DrebotGS.Core.Loading;
-using DrebotGS.Core.UI;
-using System;
-using System.Collections.Generic;
-using UnityEngine;
+using DrebotGS;
 using Zenject;
 
-namespace DrebotGS.Core
+public class AppInstaller : MonoInstaller
 {
-  public class AppInstaller : MonoInstaller
+  public override void InstallBindings()
   {
-    public override void InstallBindings()
-    {
-    }
+  }
+
+  //Injects
+  private LoadingSceneHelper _loadingSceneHelper;
+
+  [Inject]
+  public void Inject(LoadingSceneHelper loadingSceneHelper)
+  {
+    _loadingSceneHelper = loadingSceneHelper;
+  }
+
+  public override void Start()
+  {
+    // Just example load Intro scene
+    _loadingSceneHelper.LoadIntroScene();
   }
 }

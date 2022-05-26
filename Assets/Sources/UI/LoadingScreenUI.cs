@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace DrebotGS.Core.UI
+namespace DrebotGS.UI
 {
   [RequireComponent(typeof(UIDocument))]
   public class LoadingScreenUI : MonoBehaviour

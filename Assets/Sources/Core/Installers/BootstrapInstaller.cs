@@ -3,7 +3,7 @@ using Zenject;
 
 namespace DrebotGS.Core
 {
-  public class BootstrapInstaller : MonoInstaller
+  public class BootstrapInstaller : MonoInstaller<BootstrapInstaller>
   {
     Contexts _contexts;
 
@@ -12,9 +12,8 @@ namespace DrebotGS.Core
       BindContext();
       SignalBusInstall();
       DeclareSignals();
-      BindServises();
       BindLoadingProviders();
-      BindLoadOperators();
+      BindHelpers();
     }
 
     private void BindContext()
@@ -24,30 +23,25 @@ namespace DrebotGS.Core
     }
 
     private void SignalBusInstall()
-    { SignalBusInstaller.Install(Container); }
+    { 
+      // if we want to use signals
+      //SignalBusInstaller.Install(Container); 
+    }
 
     private void DeclareSignals()
     {
+      // example declare signal
       //Container.DeclareSignal<SomeSignal>();
-    }
-
-    private void BindServises()
-    {
-      //Container.Bind<ILogService>().To<UnityLogServise>().AsSingle();
-      //Container.Bind<IInputService>().To<UnityOldInputService>().AsSingle();
-      //Container.Bind<ILoadService>().To<UnityLoadService>().AsSingle();
     }
 
     private void BindLoadingProviders()
     {
-      Container.BindInterfacesAndSelfTo<LoadingSceneProvider>().AsSingle();
-      Container.BindInterfacesAndSelfTo<LoadingScreenProvider>().AsSingle();
+      Container.Bind<StandardLoadingScreenProvider>().AsSingle();
     }
 
-    private void BindLoadOperators()
+    private void BindHelpers()
     {
-      Container.BindInterfacesAndSelfTo<LoadIntroSceneOperation>().AsSingle();
-      Container.BindInterfacesAndSelfTo<LoadTitileSceneOperation>().AsSingle();
+      Container.Bind<LoadingSceneHelper>().AsSingle().NonLazy();
     }
   }
 }

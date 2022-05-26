@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-
 namespace DrebotGS.Config
 {
   /// <summary>
@@ -10,8 +9,14 @@ namespace DrebotGS.Config
   [CreateAssetMenu(fileName = "New GameScenesCatalogue", menuName = "DrebotGS/Assets/GameScenesCatalogue")]
   public class GameScenesCatalogue : ScriptableObject
   {
+    [Header("Main Scenes")]
     public AssetReference IntroScene;
-    public AssetReference LoadingScene;
-    public AssetReference TitileScene;
+    public AssetReference MainMenuScene;
+
+    [Header("Game Scenes")]
+    public AssetReference NewGameScene;
+
+    [Header("Loading Scenes")]
+    public AssetReference BaseLoadingScene;
   }
 }

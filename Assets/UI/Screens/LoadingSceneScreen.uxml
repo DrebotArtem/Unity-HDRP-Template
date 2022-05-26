@@ -1,5 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="loading-screen-background" style="width: 100%; height: 100%; background-color: rgba(52, 26, 58, 0); flex-direction: column; justify-content: center; align-items: center; -unity-text-outline-color: rgb(0, 0, 0);">
-        <ui:Label text="LoadingScene - press &quot;Space&quot; to go to Menu" display-tooltip-when-elided="true" name="label-loading-screen" style="-unity-text-align: middle-center; align-items: stretch; background-color: rgba(0, 0, 0, 0); color: rgb(255, 255, 255); -unity-text-outline-color: rgb(0, 0, 0); -unity-background-image-tint-color: rgb(255, 255, 255); font-size: 60%; width: 70%; height: 10%;" />
-    </ui:VisualElement>
-</ui:UXML>

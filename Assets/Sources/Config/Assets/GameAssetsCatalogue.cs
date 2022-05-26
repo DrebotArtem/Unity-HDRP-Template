@@ -9,6 +9,7 @@ namespace DrebotGS.Config
   [CreateAssetMenu(fileName = "New GameAssetsCatalogue", menuName = "DrebotGS/Assets/GameAssetsCatalogue")]
   public class GameAssetsCatalogue : ScriptableObject
   {
+    [Header("Loading Screens")]
     public AssetReference loadingScreen;
   }
 }

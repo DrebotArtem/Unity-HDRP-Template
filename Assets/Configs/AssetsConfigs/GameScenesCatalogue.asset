@@ -17,13 +17,18 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  LoadingScene:
-    m_AssetGUID: c3a207e20eb5dcc498315101278aee00
+  MainMenuScene:
+    m_AssetGUID: 52bbbf2f8caa9b642a681e93c7acd657
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  TitileScene:
-    m_AssetGUID: 52bbbf2f8caa9b642a681e93c7acd657
+  NewGameScene:
+    m_AssetGUID: 47f118ff5f10060459c467bc498a1e70
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  BaseLoadingScene:
+    m_AssetGUID: c3a207e20eb5dcc498315101278aee00
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

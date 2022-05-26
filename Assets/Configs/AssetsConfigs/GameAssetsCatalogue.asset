@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameAssetsCatalogue
   m_EditorClassIdentifier: 
   loadingScreen:
-    m_AssetGUID: e870bf5c11bd9964c8b5382cdb611188
+    m_AssetGUID: a67282b2ee9825a4d85595846745d273
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
