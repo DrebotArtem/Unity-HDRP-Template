@@ -21,12 +21,21 @@
 - Unity UI
 - Visual Studio Code Editor
 - Visual Studio Editor
-
 ### Other packages
 - [Entitas.](https://github.com/sschmid/Entitas-CSharp#download-entitas) The Entity Component System Framework for C# and Unity.
 - [Extenject.](https://github.com/Mathijs-Bakker/Extenject) Extenject is a lightweight highly performant dependency injection framework.
 - [Fluent Assertions.](https://github.com/BoundfoxStudios/fluentassertions-unity) A very extensive set of extension methods that allow you to more naturally specify the expected outcome unit tests.
 - [NSubstitute.](https://github.com/Thundernerd/Unity3D-NSubstitute) NSubstitute is designed as a friendly substitute for .NET mocking libraries.
+
+## Documentation
+### Loading System
+You can use one of the three base providers to load scenes.
++ **LoadingEmptyProvider.** LoadingEmptyProvider is used to load the scene, without intermediate objects. This provider is used when you don't want to load additional elements such as scenes or prefabs. When using it, you immediately proceed to the loading of operations.
++ **LoadingScreenProvider** LoadingScreenProvider is used as an prefab while we wait for the next scene to load. This provider is used when you want to load an additional prefab before loading the next scene.
+
+    + 📃LoadingScreenProvider is abstract. You must create a new class that inherits from it.
+    + ⚠Injection in prefab happens after the Start method is called.
++ **LoadingSceneProvider.** LoadingSceneProvider is used as an intermediate scene while we wait for the next scene to load.  This provider is used when you want to load an additional scene before loading the next scene.
 
 ## Future updates
 - [ ] Input System
