@@ -12,6 +12,7 @@
     border-bottom-left-radius: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    opacity: 1;
 }
 
 .main-menu-button:hover {
@@ -44,4 +45,21 @@
     border-bottom-left-radius: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+}
+
+.opacity-base-zero {
+    opacity: 0;
+}
+
+.opacity-out {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 2s;
+    transition-timing-function: ease-in-out;
+}
+
+.opacity-in {
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 2s;
 }

@@ -1,0 +1,68 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Screens/MainMenuScreens/OptionsScreen.uss?fileID=7433441132597879392&amp;guid=09df6371680e76c44a15691c0d0b41f4&amp;type=3#OptionsScreen" />
+    <DrebotGS.UI.OptionsScreenVE style="width: 100%; height: 100%; position: absolute;">
+        <ui:VisualElement name="options-screen" style="width: 100%; height: 100%; background-color: rgb(13, 13, 15); flex-direction: row; justify-content: center; align-items: center; display: flex;">
+            <ui:VisualElement name="options-main-panel" style="width: 70%; height: 70%; align-items: flex-start;">
+                <ui:Label text="Options" display-tooltip-when-elided="true" name="option-main-label" style="font-size: 65%; color: rgb(255, 255, 255); padding-left: 50px; margin-left: 3px; margin-right: 3px; margin-bottom: 40px;" />
+                <ui:VisualElement name="options-interactive-panel" style="width: 100%; height: 100%; flex-direction: row; justify-content: space-between;">
+                    <ui:VisualElement name="options-menu" style="width: 30%; height: 100%; align-items: stretch;">
+                        <ui:Button text="Controls" display-tooltip-when-elided="true" name="options-controls-button" class="option-base-button" style="display: none; visibility: hidden;" />
+                        <ui:Button text="Display" display-tooltip-when-elided="true" name="options-display-button" class="option-base-button" />
+                        <ui:Button text="Language" display-tooltip-when-elided="true" name="options-language-button" class="option-base-button" />
+                        <ui:Button text="Close" display-tooltip-when-elided="true" name="options-close-button" class="option-base-button" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="options-details" style="width: 65%; height: 100%; justify-content: flex-start;">
+                        <ui:VisualElement name="options-display-details">
+                            <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" horizontal-scroller-visibility="Hidden" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 3px; margin-right: 3px; margin-top: 3px; margin-bottom: 3px;">
+                                <ui:VisualElement name="options-details-container-display-monitor" class="options-detals-container" style="width: auto; justify-content: space-between;">
+                                    <ui:Label text="Display Monitor" display-tooltip-when-elided="true" name="options-details-label-display-monitor" enable-rich-text="true" class="option-detals-label" />
+                                    <ui:VisualElement name="options-details-switcher" class="options-detals-switcher" style="flex-direction: row; justify-content: space-between; width: 50%; flex-shrink: 1; display: flex; visibility: visible; overflow: visible;">
+                                        <ui:Button display-tooltip-when-elided="true" name="options-details-switcher-left-button-display-monitor" class="options-detals-switcher-button" style="visibility: visible;" />
+                                        <ui:Label text="Monitor 1" display-tooltip-when-elided="true" name="options-details-switcher-label-display-monitor" enable-rich-text="true" class="option-detals-label" style="font-size: 50px; -unity-text-align: upper-center; padding-left: 50px; padding-right: 50px; padding-top: 20px; padding-bottom: 20px; margin-left: 3px; margin-right: 3px; margin-top: 3px; margin-bottom: 3px; flex-shrink: 1; color: rgb(142, 142, 142);" />
+                                        <ui:Button display-tooltip-when-elided="true" name="options-details-switcher-right-button-display-monitor" class="options-detals-switcher-button" style="scale: -1 1; visibility: visible;" />
+                                    </ui:VisualElement>
+                                </ui:VisualElement>
+                                <ui:VisualElement name="options-detals-container-display-mode" class="options-detals-container" style="width: auto;">
+                                    <ui:Label text="Display Mode" display-tooltip-when-elided="true" name="options-details-label-display-mode" enable-rich-text="true" class="option-detals-label" />
+                                    <ui:VisualElement name="options-details-switcher" class="options-detals-switcher" style="flex-direction: row; justify-content: space-between; width: 50%; flex-shrink: 1;">
+                                        <ui:Button display-tooltip-when-elided="true" name="options-details-switcher-left-button-display-mode" class="options-detals-switcher-button" />
+                                        <ui:Label text="Full Screen" display-tooltip-when-elided="true" name="options-details-switcher-label-display-mode" class="option-detals-label" style="font-size: 50px; -unity-text-align: upper-center; padding-left: 50px; padding-right: 50px; padding-top: 20px; padding-bottom: 20px; margin-left: 3px; margin-right: 3px; margin-top: 3px; margin-bottom: 3px; flex-shrink: 1; color: rgb(142, 142, 142);" />
+                                        <ui:Button display-tooltip-when-elided="true" name="options-details-switcher-right-button-display-mode" class="options-detals-switcher-button" style="scale: -1 1;" />
+                                    </ui:VisualElement>
+                                </ui:VisualElement>
+                                <ui:VisualElement name="options-details-container-screen-resolution" class="options-detals-container" style="width: auto;">
+                                    <ui:Label text="Screen Resolution" display-tooltip-when-elided="true" name="options-details-label-screen-resolution" enable-rich-text="true" class="option-detals-label" />
+                                    <ui:VisualElement name="options-details-switcher" class="options-detals-switcher" style="flex-direction: row; justify-content: space-between; width: 50%; flex-shrink: 1;">
+                                        <ui:Button display-tooltip-when-elided="true" name="options-details-switcher-left-button-screen-resolution" class="options-detals-switcher-button" />
+                                        <ui:Label text="3840x2160" display-tooltip-when-elided="true" name="options-details-switcher-label-screen-resolution" enable-rich-text="true" class="option-detals-label" style="font-size: 50px; -unity-text-align: upper-center; padding-left: 50px; padding-right: 50px; padding-top: 20px; padding-bottom: 20px; margin-left: 3px; margin-right: 3px; margin-top: 3px; margin-bottom: 3px; flex-shrink: 1; color: rgb(142, 142, 142);" />
+                                        <ui:Button display-tooltip-when-elided="true" name="options-details-switcher-right-button-screen-resolution" class="options-detals-switcher-button" style="scale: -1 1;" />
+                                    </ui:VisualElement>
+                                </ui:VisualElement>
+                                <ui:VisualElement name="options-details-container-vsync" class="options-detals-container" style="width: auto;">
+                                    <ui:Label text="Vertical Synchronization" display-tooltip-when-elided="true" name="options-details-label-vsync" enable-rich-text="true" class="option-detals-label" />
+                                    <ui:VisualElement name="options-details-switcher" class="options-detals-switcher" style="flex-direction: row; justify-content: space-between; width: 50%; flex-shrink: 1;">
+                                        <ui:Button display-tooltip-when-elided="true" name="options-details-switcher-left-button-vsync" class="options-detals-switcher-button" />
+                                        <ui:Label text="Off" display-tooltip-when-elided="true" name="options-details-switcher-label-vsync" enable-rich-text="true" class="option-detals-label" style="font-size: 50px; -unity-text-align: upper-center; padding-left: 50px; padding-right: 50px; padding-top: 20px; padding-bottom: 20px; margin-left: 3px; margin-right: 3px; margin-top: 3px; margin-bottom: 3px; flex-shrink: 1; color: rgb(142, 142, 142);" />
+                                        <ui:Button display-tooltip-when-elided="true" name="options-details-switcher-right-button-vsync" class="options-detals-switcher-button" style="scale: -1 1;" />
+                                    </ui:VisualElement>
+                                </ui:VisualElement>
+                            </ui:ScrollView>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="options-language-details" style="display: none;">
+                            <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" horizontal-scroller-visibility="Hidden" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 3px; margin-right: 3px; margin-top: 3px; margin-bottom: 3px;">
+                                <ui:VisualElement name="options-details-container-language" class="options-detals-container" style="width: auto;">
+                                    <ui:Label text="Display Language" display-tooltip-when-elided="true" name="options-details-label-language" enable-rich-text="true" class="option-detals-label" />
+                                    <ui:VisualElement name="options-details-switcher" class="options-detals-switcher">
+                                        <ui:Button display-tooltip-when-elided="true" name="options-details-switcher-left-button-language" class="options-detals-switcher-button" style="visibility: hidden;" />
+                                        <ui:Label text="English" display-tooltip-when-elided="true" name="options-details-switcher-label-language" enable-rich-text="true" class="option-detals-label" style="font-size: 50px; -unity-text-align: upper-center; padding-left: 50px; padding-right: 50px; padding-top: 20px; padding-bottom: 20px; margin-left: 3px; margin-right: 3px; margin-top: 3px; margin-bottom: 3px; flex-shrink: 1; color: rgb(142, 142, 142);" />
+                                        <ui:Button display-tooltip-when-elided="true" name="options-details-switcher-right-button-language" class="options-detals-switcher-button" style="scale: -1 1; display: flex; visibility: hidden;" />
+                                    </ui:VisualElement>
+                                </ui:VisualElement>
+                            </ui:ScrollView>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </DrebotGS.UI.OptionsScreenVE>
+</ui:UXML>

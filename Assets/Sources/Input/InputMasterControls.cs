@@ -92,6 +92,15 @@ public partial class @InputMasterControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Click"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""c44b6d7c-8002-40ba-8e09-2585738401f9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -156,8 +165,19 @@ public partial class @InputMasterControls : IInputActionCollection2, IDisposable
                     ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard and Mouse"",
                     ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6bc96c47-8841-42e1-b4eb-6eb05f4ddb29"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Click"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -191,6 +211,7 @@ public partial class @InputMasterControls : IInputActionCollection2, IDisposable
         m_MainMenuControls = asset.FindActionMap("MainMenuControls", throwIfNotFound: true);
         m_MainMenuControls_Navigate = m_MainMenuControls.FindAction("Navigate", throwIfNotFound: true);
         m_MainMenuControls_Point = m_MainMenuControls.FindAction("Point", throwIfNotFound: true);
+        m_MainMenuControls_Click = m_MainMenuControls.FindAction("Click", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -293,12 +314,14 @@ public partial class @InputMasterControls : IInputActionCollection2, IDisposable
     private IMainMenuControlsActions m_MainMenuControlsActionsCallbackInterface;
     private readonly InputAction m_MainMenuControls_Navigate;
     private readonly InputAction m_MainMenuControls_Point;
+    private readonly InputAction m_MainMenuControls_Click;
     public struct MainMenuControlsActions
     {
         private @InputMasterControls m_Wrapper;
         public MainMenuControlsActions(@InputMasterControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Navigate => m_Wrapper.m_MainMenuControls_Navigate;
         public InputAction @Point => m_Wrapper.m_MainMenuControls_Point;
+        public InputAction @Click => m_Wrapper.m_MainMenuControls_Click;
         public InputActionMap Get() { return m_Wrapper.m_MainMenuControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -314,6 +337,9 @@ public partial class @InputMasterControls : IInputActionCollection2, IDisposable
                 @Point.started -= m_Wrapper.m_MainMenuControlsActionsCallbackInterface.OnPoint;
                 @Point.performed -= m_Wrapper.m_MainMenuControlsActionsCallbackInterface.OnPoint;
                 @Point.canceled -= m_Wrapper.m_MainMenuControlsActionsCallbackInterface.OnPoint;
+                @Click.started -= m_Wrapper.m_MainMenuControlsActionsCallbackInterface.OnClick;
+                @Click.performed -= m_Wrapper.m_MainMenuControlsActionsCallbackInterface.OnClick;
+                @Click.canceled -= m_Wrapper.m_MainMenuControlsActionsCallbackInterface.OnClick;
             }
             m_Wrapper.m_MainMenuControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -324,6 +350,9 @@ public partial class @InputMasterControls : IInputActionCollection2, IDisposable
                 @Point.started += instance.OnPoint;
                 @Point.performed += instance.OnPoint;
                 @Point.canceled += instance.OnPoint;
+                @Click.started += instance.OnClick;
+                @Click.performed += instance.OnClick;
+                @Click.canceled += instance.OnClick;
             }
         }
     }
@@ -346,5 +375,6 @@ public partial class @InputMasterControls : IInputActionCollection2, IDisposable
     {
         void OnNavigate(InputAction.CallbackContext context);
         void OnPoint(InputAction.CallbackContext context);
+        void OnClick(InputAction.CallbackContext context);
     }
 }

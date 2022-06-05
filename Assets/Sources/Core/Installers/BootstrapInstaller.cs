@@ -10,8 +10,6 @@ namespace DrebotGS.Core
     public override void InstallBindings()
     {
       BindContext();
-      SignalBusInstall();
-      DeclareSignals();
       BindLoadingProviders();
       BindHelpers();
     }
@@ -20,18 +18,6 @@ namespace DrebotGS.Core
     {
       _contexts = Contexts.sharedInstance;
       Container.Bind<Contexts>().FromInstance(_contexts);
-    }
-
-    private void SignalBusInstall()
-    { 
-      // if we want to use signals
-      //SignalBusInstaller.Install(Container); 
-    }
-
-    private void DeclareSignals()
-    {
-      // example declare signal
-      //Container.DeclareSignal<SomeSignal>();
     }
 
     private void BindLoadingProviders()

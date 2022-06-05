@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Screens/MainMenuScreens/TitleScreen.uss?fileID=7433441132597879392&amp;guid=87a5aa92cd1e1114b9a452ea34486d5a&amp;type=3#TitleScreen" />
+    <ui:VisualElement name="title-screen" style="width: 100%; height: 100%; position: relative; align-items: center; justify-content: center; display: flex;">
+        <ui:VisualElement name="title-background" style="background-image: url(&apos;project://database/Assets/Sprites/UI/MainMenu/main-menu-background.png?fileID=2800000&amp;guid=4aad36e065f4ea04aad584880f8e088f&amp;type=3#main-menu-background&apos;); width: 100%; height: 100%; -unity-background-scale-mode: scale-and-crop; flex-shrink: 1; flex-grow: 0; position: absolute; display: flex;">
+            <ui:Label text="Deer demo project" display-tooltip-when-elided="true" name="title-game-label" class="opacity-base-zero" style="flex-shrink: 0; position: relative; top: 40%; left: 50%; color: rgb(0, 144, 112); font-size: 70px; -unity-font: url(&apos;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#Arial&apos;); width: 30%; -unity-font-style: bold;" />
+        </ui:VisualElement>
+        <ui:GroupBox name="title-buttons-panel" class="opacity-base-zero" style="width: 10%; align-items: center; justify-content: flex-start; top: 20%; height: 20%; display: flex; visibility: visible; overflow: visible;">
+            <ui:Button text="NEW GAME" display-tooltip-when-elided="true" name="new-game-button" class="main-menu-button" />
+            <ui:Button text="OPTIONS" display-tooltip-when-elided="true" name="options-button" class="main-menu-button" style="font-size: 42%;" />
+            <ui:Button text="EXIT" display-tooltip-when-elided="true" name="exit-button" class="main-menu-button" style="font-size: 42%;" />
+        </ui:GroupBox>
+    </ui:VisualElement>
+</ui:UXML>

@@ -44,7 +44,11 @@ namespace DrebotGS.Core
       CreateLoadSystems(_contexts);
       _loadSystems.IncjectSelfAndChildren(_diContainer);
       _loadSystems.Initialize();
+
+#if UNITY_EDITOR
       DontDestroyOnLoad(_loadSystems.gameObject);
+#endif
+
       void CreateLoadSystems(Contexts contexts)
       {
         _loadSystems.Add(new LoadSceneSystem(contexts));

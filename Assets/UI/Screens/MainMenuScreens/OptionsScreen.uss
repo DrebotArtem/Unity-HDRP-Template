@@ -1,0 +1,163 @@
+.option-base-button {
+    font-size: 50px;
+    -unity-text-align: middle-left;
+    background-color: rgba(88, 88, 88, 0);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    color: rgb(142, 142, 142);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-left-color: rgb(88, 88, 88);
+    border-right-color: rgb(88, 88, 88);
+    border-top-color: rgb(88, 88, 88);
+    border-bottom-color: rgb(88, 88, 88);
+}
+
+.option-base-button:hover {
+    font-size: 50px;
+    -unity-text-align: middle-left;
+    border-left-width: 3px;
+    background-color: rgba(88, 88, 88, 0);
+    border-right-width: 3px;
+    border-top-width: 3px;
+    border-bottom-width: 3px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    color: rgb(142, 142, 142);
+    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-left-color: rgb(88, 88, 88);
+    border-right-color: rgb(88, 88, 88);
+    border-top-color: rgb(88, 88, 88);
+    border-bottom-color: rgb(88, 88, 88);
+}
+
+.options-detals-container {
+    background-color: rgba(255, 255, 255, 0);
+    align-items: stretch;
+    justify-content: space-between;
+    flex-direction: row;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.options-detals-container:hover {
+    background-color: rgba(255, 255, 255, 0);
+    align-items: stretch;
+    justify-content: space-between;
+    flex-direction: row;
+    border-left-width: 3px;
+    border-right-width: 3px;
+    border-top-width: 3px;
+    border-bottom-width: 3px;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.option-detals-label {
+    font-size: 50px;
+    -unity-text-align: middle-left;
+    background-color: rgba(88, 88, 88, 0);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    color: rgb(142, 142, 142);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-left-color: rgb(88, 88, 88);
+    border-right-color: rgb(88, 88, 88);
+    border-top-color: rgb(88, 88, 88);
+    border-bottom-color: rgb(88, 88, 88);
+}
+
+.options-detals-switcher-button {
+    flex-shrink: 0;
+    width: 80px;
+    background-image: url('project://database/Assets/Sprites/UI/MainMenu/Options/Arrow.png?fileID=2800000&guid=49388e193587a6c4d96573b26f63d3ea&type=3#Arrow');
+    background-color: rgba(88, 88, 88, 0);
+    -unity-background-scale-mode: scale-and-crop;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    transform-origin: center;
+    rotate: 0;
+    -unity-background-image-tint-color: rgb(142, 142, 142);
+}
+
+.options-detals-switcher-button:hover {
+    flex-shrink: 0;
+    width: 80px;
+    background-image: url('project://database/Assets/Sprites/UI/MainMenu/Options/Arrow.png?fileID=2800000&guid=49388e193587a6c4d96573b26f63d3ea&type=3#Arrow');
+    background-color: rgba(88, 88, 88, 0);
+    -unity-background-scale-mode: scale-and-crop;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    transform-origin: center;
+    rotate: 0;
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+}
+
+.options-detals-switcher {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+    flex-shrink: 1;
+}
