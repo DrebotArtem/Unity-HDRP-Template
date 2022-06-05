@@ -26,6 +26,7 @@
 - [Extenject.](https://github.com/Mathijs-Bakker/Extenject) Extenject is a lightweight highly performant dependency injection framework.
 - [Fluent Assertions.](https://github.com/BoundfoxStudios/fluentassertions-unity) A very extensive set of extension methods that allow you to more naturally specify the expected outcome unit tests.
 - [NSubstitute.](https://github.com/Thundernerd/Unity3D-NSubstitute) NSubstitute is designed as a friendly substitute for .NET mocking libraries.
+- [More Effective Coroutines.](http://trinary.tech/category/mec/) More Effective Coroutines (MEC) is an improved implementation of coroutines. It is a free asset on the Unity asset store.
 
 ## Documentation
 ### Loading System
@@ -36,10 +37,13 @@ You can use one of the three base providers to load scenes.
     + 📃LoadingScreenProvider is abstract. You must create a new class that inherits from it.
     + ⚠Injection in prefab happens after the Start method is called.
 + **LoadingSceneProvider.** LoadingSceneProvider is used as an intermediate scene while we wait for the next scene to load.  This provider is used when you want to load an additional scene before loading the next scene.
+### UI System
+Added main menu and basic display settings.
+<img src="https://github.com/DrebotArtem/ResourcesForGitHub/blob/main/Unity%20HDRP%20Template/UI%20demonstration.gif" width="921" height="516">
 
 ## Future updates
 - [ ] Input System
-- [ ] UI
+- [x] UI
 - [ ] Save System
 - [x] Loading System
 - [x] Unit Tests
