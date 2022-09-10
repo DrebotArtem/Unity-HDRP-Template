@@ -8,15 +8,15 @@
 //------------------------------------------------------------------------------
 public static class MetaComponentsLookup {
 
+    public const int LoadService = 0;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 1;
 
     public static readonly string[] componentNames = {
-
+        "LoadService"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(LoadServiceComponent)
     };
 }

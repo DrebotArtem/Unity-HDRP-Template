@@ -9,7 +9,7 @@ namespace DrebotGS.Core
     public override void InstallBindings()
     {
     }
-
+    private InjectableFeature _serviceRegisterSystems;
     private InjectableFeature _loadSystems;
     private const string _supportSceneName = "SupportScene";
 
@@ -31,6 +31,7 @@ namespace DrebotGS.Core
 
     public override void Start()
     {
+      CreateAndInitRegisterServiceSystems();
       CreateAndInitLoadSystems();
 
       var name = SceneManager.GetActiveScene().name;
@@ -38,6 +39,22 @@ namespace DrebotGS.Core
       LoadFirstScene(name);
     }
 
+    private void CreateAndInitRegisterServiceSystems()
+    {
+      _serviceRegisterSystems = new InjectableFeature("ServiceSystems");
+      CreateRegisterServiceSystems(_contexts);
+      _serviceRegisterSystems.IncjectSelfAndChildren(_diContainer);
+      _serviceRegisterSystems.Initialize();
+
+#if UNITY_EDITOR
+      DontDestroyOnLoad(_serviceRegisterSystems.gameObject);
+#endif
+
+      void CreateRegisterServiceSystems(Contexts contexts)
+      {
+        _serviceRegisterSystems.Add(new LoadAssetServiceSystem(contexts));
+      }
+    }
     private void CreateAndInitLoadSystems()
     {
       _loadSystems = new InjectableFeature("LoadSystems");
@@ -61,7 +78,10 @@ namespace DrebotGS.Core
 
     private void Update()
     {
+      _serviceRegisterSystems.Execute();
       _loadSystems.Execute();
+
+      _serviceRegisterSystems.Cleanup();
       _loadSystems.Cleanup();
     }
 
@@ -71,7 +91,7 @@ namespace DrebotGS.Core
     }
 
     /// <summary>
-    /// Inly for debug. Needed to correctly launch the game from any scene.
+    /// Only for debug. Needed to correctly launch the game from any scene.
     /// </summary>
     /// <param name="name"></param>
     private void LoadFirstScene(string name)

@@ -1,4 +1,5 @@
 using DrebotGS.Core.Loading;
+using DrebotGS.Services;
 using Zenject;
 
 namespace DrebotGS.Core
@@ -9,7 +10,8 @@ namespace DrebotGS.Core
 
     public override void InstallBindings()
     {
-      BindContext();
+      BindContext(); 
+      BindSerices();
       BindLoadingProviders();
       BindHelpers();
     }
@@ -18,6 +20,11 @@ namespace DrebotGS.Core
     {
       _contexts = Contexts.sharedInstance;
       Container.Bind<Contexts>().FromInstance(_contexts);
+    }
+
+    private void BindSerices()
+    {
+      Container.Bind<ILoadService>().To<UnityLoadService>().AsSingle();
     }
 
     private void BindLoadingProviders()
