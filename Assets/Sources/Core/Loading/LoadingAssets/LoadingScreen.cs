@@ -46,7 +46,8 @@ namespace DrebotGS.Core.Loading
     }
     private void PlayerInput_onActionTriggered(InputAction.CallbackContext obj)
     {
-      _contexts.gameState.loadingProviderEntity.isUnloadProvider = true;
+      if (_contexts.gameState.loadingProviderEntity.isLoadedOperations)
+        _contexts.gameState.loadingProviderEntity.isUnloadProvider = true;
     }
 
     public void OnProgress(float progress)

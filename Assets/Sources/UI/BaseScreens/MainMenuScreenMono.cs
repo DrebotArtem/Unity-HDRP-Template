@@ -104,7 +104,11 @@ namespace DrebotGS.UI
         {
           exitGame.clickable.clicked += () =>
           {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
             Application.Quit();
+#endif
           };
         }
       }

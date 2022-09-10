@@ -1,7 +1,7 @@
 ![Image Unity HDRP Template](https://github.com/DrebotArtem/ResourcesForGitHub/blob/main/Unity%20HDRP%20Template/UnityHDRPTemplateHeader.jpg)
 
 <h1 align="center">Unity HDRP Template</h1>
-<p align="center">Unity HDRP template for new projects. Version 2021.3.0f1</p>
+<p align="center">Unity HDRP template for new projects. Version 2022.1.14f1</p>
 
 ## Built With
 - C#
