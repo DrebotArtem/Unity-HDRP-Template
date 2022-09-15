@@ -1,13 +1,12 @@
 using Entitas;
+using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace DrebotGS.Services
 {
   public interface ILoadService
   {
-    GameObject LoadAsset(
-    Contexts contexts,
-    IEntity entity,
-    string assetName);
+    Task<T> LoadAsset<T>(IEntity entity, string assetRference);
   }
 }

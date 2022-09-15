@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace DrebotGS.Views
 {
-  public class BaseView : MonoBehaviour, IView
+  public abstract class BaseView : MonoBehaviour, IView
   {
     private GameEntity _entity;
 
@@ -19,10 +19,10 @@ namespace DrebotGS.Views
       _entity = (GameEntity)entity;
     }
 
-    public virtual void RemoveAsset()
+    public  void Unlink()
     {
-      Entity.RemoveView();
-      Entity.isAsset = false;
+      _entity = null;
+        gameObject.Unlink();
     }
   }
 }

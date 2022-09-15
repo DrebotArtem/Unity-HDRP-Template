@@ -34,6 +34,17 @@ namespace DrebotGS.Core
     {
       CreateGameSystems();
     }
+    private void OnDestroy()
+    {
+      _gameSystems.TearDown();
+      _gameSystems.StepExecute();
+      _gameSystems.StepCleanup();
+      _gameSystems.DeactivateReactiveSystems();
+
+      _contexts.game.DestroyAllEntities();
+      _contexts.game.ResetCreationIndex();
+      _contexts.game.Reset();
+    }
 
     private void CreateGameSystems()
     {
@@ -49,8 +60,15 @@ namespace DrebotGS.Core
 
         _gameSystems.Add(new LoadAssetSystem(contexts));
 
+        // TearDown
+        _gameSystems.Add(new ReleaseAddressablesAssetsSystem(contexts));
+        _gameSystems.Add(new DestroyViewsSystem(contexts));
+
         // Generated
         _gameSystems.Add(new GameEventSystems(contexts));
+
+        // CleanupSystem
+        _gameSystems.Add(new DestroyDestroyedGameSystem(contexts));
       }
     }
 

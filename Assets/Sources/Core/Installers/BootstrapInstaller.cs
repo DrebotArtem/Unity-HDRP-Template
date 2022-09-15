@@ -24,7 +24,7 @@ namespace DrebotGS.Core
 
     private void BindSerices()
     {
-      Container.Bind<ILoadService>().To<UnityLoadService>().AsSingle();
+      Container.Bind<ILoadService>().To<UnityAddressablesLoadService>().AsSingle();
     }
 
     private void BindLoadingProviders()
