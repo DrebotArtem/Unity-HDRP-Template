@@ -4,8 +4,9 @@ namespace DrebotGS.Core.Loading
 {
   public interface ILoadingProvider
   {
-    Task LoadProvider(GameStateEntity entity);
+    Task LoadProvider();
     Task LoadOperations();
-    void UnloadProvider();
+    Task UnloadProvider();
+    void UnloadOperations();
   }
 }

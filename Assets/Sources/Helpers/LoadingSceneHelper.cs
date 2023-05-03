@@ -43,18 +43,18 @@ namespace DrebotGS
 
       void CreateLoadingProviderForFirstScene()
       {
-        var loadingSceneProvider = new LoadingEmptyProvider();
         var loadingOperations = new Queue<ILoadingOperation>();
         loadingOperations.Enqueue(new LoadSceneOperation(firstScene));
+        var loadingSceneProvider = new LoadingEmptyProvider(loadingOperations);
         _contexts.gameState.CreateLoadingProvider(loadingSceneProvider, loadingOperations);
       }
     }
 
     public void LoadIntroScene()
     {
-      var loadingSceneProvider = new LoadingEmptyProvider();
       var loadingOperations = new Queue<ILoadingOperation>();
       loadingOperations.Enqueue(new LoadSceneOperation(_gameScenesCatalogue.IntroScene));
+      var loadingSceneProvider = new LoadingEmptyProvider(loadingOperations);
       _contexts.gameState.CreateLoadingProvider(loadingSceneProvider, loadingOperations);
     }
 

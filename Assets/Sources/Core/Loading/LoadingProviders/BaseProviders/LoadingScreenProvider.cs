@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Zenject;
 
@@ -11,30 +13,28 @@ namespace DrebotGS.Core.Loading
   /// </summary>
   public abstract class LoadingScreenProvider : LocalAssetLoader, ILoadingProvider
   {
-    private GameStateEntity _entityLoadingProvider;
     private LoadingScreen _loadingScreen;
 
     protected abstract AssetReference _sceneLoadingReference { get; }
     protected DiContainer _diContainer;
 
-    public async Task LoadOperations()
+    private Queue<ILoadingOperation> _loadingOperations;
+
+    public void SetLoadingOperation(Queue<ILoadingOperation> loadingOperations)
     {
-      foreach (var operation in _entityLoadingProvider.loadingProvider.loadingOperations)
-      {
-        await operation.Load(_loadingScreen.OnProgress);
-      }
-      await Task.Delay(1);
-      _entityLoadingProvider.isLoadedOperations = true;
-      await Task.Delay(1);
-      _entityLoadingProvider.isUnloadProvider = _entityLoadingProvider.isUnloadProviderAfterLoad;
+      _loadingOperations = loadingOperations;
     }
 
-    public async Task LoadProvider(GameStateEntity entity)
+    public async Task LoadOperations()
     {
-      _entityLoadingProvider = entity;
+        foreach (var operation in _loadingOperations)
+          await operation.Load(_loadingScreen.OnProgress);
+    }
+
+    public async Task LoadProvider()
+    {
       _loadingScreen = await Load();
       _diContainer.InjectGameObject(_loadingScreen.gameObject);
-      _entityLoadingProvider.isLoadedProvider = true;
     }
 
     private Task<LoadingScreen> Load()
@@ -42,18 +42,22 @@ namespace DrebotGS.Core.Loading
       return LoadInternal<LoadingScreen>(_sceneLoadingReference);
     }
 
-    public void UnloadProvider()
+    public async Task UnloadProvider()
     {
       UnloadInternal();
-      ActivateLoadingOperations();
+      await ActivateLoadingOperations();
     }
 
-    private void ActivateLoadingOperations()
+    private async Task ActivateLoadingOperations()
     {
-      foreach (var operation in _entityLoadingProvider.loadingProvider.loadingOperations)
-      {
-        operation.Activate();
-      }
+      foreach (var operation in _loadingOperations)
+        await operation.Activate();
+    }
+
+    public void UnloadOperations()
+    {
+      foreach (var operation in _loadingOperations)
+        operation.Unload();
     }
   }
 }

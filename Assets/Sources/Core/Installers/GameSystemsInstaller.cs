@@ -10,7 +10,6 @@ namespace DrebotGS.Core
     {
     }
     private InjectableFeature _serviceRegisterSystems;
-    private InjectableFeature _loadSystems;
     private const string _supportSceneName = "SupportScene";
 
     //Injects
@@ -32,7 +31,6 @@ namespace DrebotGS.Core
     public override void Start()
     {
       CreateAndInitRegisterServiceSystems();
-      CreateAndInitLoadSystems();
 
       var name = SceneManager.GetActiveScene().name;
       AddSupportScene();
@@ -55,34 +53,12 @@ namespace DrebotGS.Core
         _serviceRegisterSystems.Add(new LoadAssetServiceSystem(contexts));
       }
     }
-    private void CreateAndInitLoadSystems()
-    {
-      _loadSystems = new InjectableFeature("LoadSystems");
-      CreateLoadSystems(_contexts);
-      _loadSystems.IncjectSelfAndChildren(_diContainer);
-      _loadSystems.Initialize();
-
-#if UNITY_EDITOR
-      DontDestroyOnLoad(_loadSystems.gameObject);
-#endif
-
-      void CreateLoadSystems(Contexts contexts)
-      {
-        _loadSystems.Add(new LoadSceneSystem(contexts));
-        _loadSystems.Add(new ProcessLoadingOperationSystem(contexts));
-        _loadSystems.Add(new UnloadProviderSystem(contexts));
-
-        _loadSystems.Add(new DestroyDestroyedGameStateSystem(contexts));
-      }
-    }
 
     private void Update()
     {
       _serviceRegisterSystems.Execute();
-      _loadSystems.Execute();
 
       _serviceRegisterSystems.Cleanup();
-      _loadSystems.Cleanup();
     }
 
     private void AddSupportScene()

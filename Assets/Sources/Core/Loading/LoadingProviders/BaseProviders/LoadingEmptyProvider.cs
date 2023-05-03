@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace DrebotGS.Core.Loading
 {
@@ -7,35 +9,40 @@ namespace DrebotGS.Core.Loading
   /// </summary>
   public class LoadingEmptyProvider : ILoadingProvider
   {
-    private GameStateEntity _entityLoadingProvider;
+    private Queue<ILoadingOperation> _loadingOperations;
 
-    public async Task LoadProvider(GameStateEntity entityLoadingPrivider)
+    public LoadingEmptyProvider(
+      Queue<ILoadingOperation> loadingOperations)
     {
-      _entityLoadingProvider = entityLoadingPrivider;
+      _loadingOperations = loadingOperations;
+    }
+
+    public async Task LoadProvider()
+    {
       await Task.Delay(1);
-      _entityLoadingProvider.isLoadedProvider = true;
     }
 
     public async Task LoadOperations()
     {
-      foreach (var operation in _entityLoadingProvider.loadingProvider.loadingOperations)
+      foreach (var operation in _loadingOperations)
         await operation.Load(null);
-
-      await Task.Delay(1);
-      _entityLoadingProvider.isLoadedOperations = true;
-      await Task.Delay(1);
-      _entityLoadingProvider.isUnloadProvider = _entityLoadingProvider.isUnloadProviderAfterLoad;
     }
 
-    public async void UnloadProvider()
+    public async Task UnloadProvider()
     {
       await ActivateLoadingOperations();
     }
 
     private async Task ActivateLoadingOperations()
     {
-      foreach (var operation in _entityLoadingProvider.loadingProvider.loadingOperations)
+      foreach (var operation in _loadingOperations)
         await operation.Activate();
+    }
+
+    public void UnloadOperations()
+    {
+      foreach (var operation in _loadingOperations)
+        operation.Unload();
     }
   }
 }

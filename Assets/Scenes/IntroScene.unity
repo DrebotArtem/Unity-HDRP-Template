@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 524.7671, g: 650.2168, b: 860.61914, a: 1}
+  m_IndirectSpecularColor: {r: 524.6738, g: 650.0996, b: 860.4385, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -436,27 +436,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1337279210}
   - component: {fileID: 1337279209}
-  - component: {fileID: 1337279208}
   m_Layer: 0
   m_Name: TempInput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1337279208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1337279207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e5fe0859e9587e49847f0af3a7a2e8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInput: {fileID: 1337279209}
+  m_IsActive: 0
 --- !u!114 &1337279209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -714,6 +700,7 @@ MonoBehaviour:
   taaMotionVectorRejection: 0
   taaAntiHistoryRinging: 0
   taaBaseBlendFactor: 0.875
+  taaJitterScale: 1
   physicalParameters:
     m_Iso: 200
     m_ShutterSpeed: 0.005
@@ -866,7 +853,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2051549866}
-  m_LocalRotation: {x: 0.13629152, y: 0.4753576, z: -0.0748167, w: 0.8659459}
+  m_LocalRotation: {x: 0.13629153, y: 0.4753576, z: -0.074816704, w: 0.8659459}
   m_LocalPosition: {x: -12.415381, y: 4.75, z: -7.900692}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -921,7 +908,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -944,7 +931,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103124540}
-  m_LocalRotation: {x: 0.13629152, y: 0.4753576, z: -0.0748167, w: 0.8659459}
+  m_LocalRotation: {x: 0.13629153, y: 0.4753576, z: -0.074816704, w: 0.8659459}
   m_LocalPosition: {x: -12.415381, y: 4.75, z: -7.900692}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -966,5 +953,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerIndex: -1
+  AutoEnableInputs: 1
   XYAxis: {fileID: 4355960463384206091, guid: b7b543d3d15fb4c40baf548dc61a5c7c, type: 3}
   ZAxis: {fileID: 4355960463384206091, guid: b7b543d3d15fb4c40baf548dc61a5c7c, type: 3}

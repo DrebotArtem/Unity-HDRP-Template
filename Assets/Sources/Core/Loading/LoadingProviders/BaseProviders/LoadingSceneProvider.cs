@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine.AddressableAssets;
 
@@ -10,34 +11,30 @@ namespace DrebotGS.Core.Loading
   {
     private GameStateEntity _entityLoadingProvider;
     private AssetReference _sceneLoadingReference;
+    private Queue<ILoadingOperation> _loadingOperations;
 
     public LoadingSceneProvider(AssetReference sceneLoadingReference)
     {
       _sceneLoadingReference = sceneLoadingReference;
     }
 
-    public async Task LoadProvider(GameStateEntity entityLoadingPrivider)
+    public void SetLoadingOperation(Queue<ILoadingOperation> loadingOperations)
     {
-      _entityLoadingProvider = entityLoadingPrivider;
+      _loadingOperations = loadingOperations;
+    }
 
+    public async Task LoadProvider()
+    {
       await LoadInternal(_sceneLoadingReference);
-      _entityLoadingProvider.isLoadedProvider = true;
     }
 
     public async Task LoadOperations()
     {
-      foreach (var operation in _entityLoadingProvider.loadingProvider.loadingOperations)
+      foreach (var operation in _loadingOperations)
         await operation.Load(null);
-
-      // We are waiting for some time to simulate the loading.
-      await Task.Delay(2000);
-      _entityLoadingProvider.isLoadedOperations = true;
-      // We are waiting for some time to simulate the loading.
-      await Task.Delay(2000);
-      _entityLoadingProvider.isUnloadProvider = _entityLoadingProvider.isUnloadProviderAfterLoad;
     }
 
-    public async void UnloadProvider()
+    public async Task UnloadProvider()
     {
       await ActivateLoadingOperations();
       UnloadInternal();
@@ -45,8 +42,13 @@ namespace DrebotGS.Core.Loading
 
     private async Task ActivateLoadingOperations()
     {
-      foreach (var operation in _entityLoadingProvider.loadingProvider.loadingOperations)
+      foreach (var operation in _loadingOperations)
         await operation.Activate();
+    }
+    public void UnloadOperations()
+    {
+      foreach (var operation in _loadingOperations)
+        operation.Unload();
     }
   }
 }

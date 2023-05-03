@@ -1,3 +1,4 @@
+using DrebotGS.StateMachine;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -31,10 +32,12 @@ namespace DrebotGS.UI
 
     //Inject
     private LoadingSceneHelper _loadingSceneHelper;
+    private GameStateMachine _gameStateMachine;
 
     [Inject]
-    public void Inject(LoadingSceneHelper loadingSceneHelper)
+    public void Inject(LoadingSceneHelper loadingSceneHelper, GameStateMachine gameStateMachine)
     {
+      _gameStateMachine = gameStateMachine;
       _loadingSceneHelper = loadingSceneHelper;
     }
 
@@ -76,7 +79,8 @@ namespace DrebotGS.UI
         {
           newGame.clickable.clicked += () =>
           {
-            _loadingSceneHelper.LoadNewGameScene();
+            _gameStateMachine.SwitchState<NewGameState>();
+            //_loadingSceneHelper.LoadNewGameScene();
           };
         }
       }

@@ -1,3 +1,4 @@
+using DrebotGS.Services;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
@@ -12,12 +13,13 @@ namespace DrebotGS.Core.Loading
 
     // Inject
     private Contexts _contexts;
+    private SceneLoaderService _sceneLoaderService;
 
     [Inject]
-    public void Inject(
-        Contexts context)
+    public void Inject(Contexts context, SceneLoaderService sceneLoaderService)
     {
       _contexts = context;
+      _sceneLoaderService = sceneLoaderService;
       InitAfterInject();
     }
 
@@ -30,7 +32,7 @@ namespace DrebotGS.Core.Loading
 
       _inputControl = new InputMasterControls();
       _inputControl.Enable();
-      _inputControl.LoadingControls.Submit.performed += PlayerInput_onActionTriggered;
+     // _inputControl.LoadingControls.Continue.performed += PlayerInput_onActionTriggered;
     }
 
     private void OnEnable()
@@ -44,10 +46,10 @@ namespace DrebotGS.Core.Loading
       if (_inputControl != null)
         _inputControl.Disable();
     }
+
     private void PlayerInput_onActionTriggered(InputAction.CallbackContext obj)
     {
-      if (_contexts.gameState.loadingProviderEntity.isLoadedOperations)
-        _contexts.gameState.loadingProviderEntity.isUnloadProvider = true;
+      _ = _sceneLoaderService.UnloadProvider();
     }
 
     public void OnProgress(float progress)

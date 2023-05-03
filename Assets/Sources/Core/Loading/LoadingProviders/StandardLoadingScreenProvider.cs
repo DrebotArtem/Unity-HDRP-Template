@@ -1,4 +1,7 @@
 using DrebotGS.Config;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Zenject;
 
@@ -7,6 +10,7 @@ namespace DrebotGS.Core.Loading
   public sealed class StandardLoadingScreenProvider : LoadingScreenProvider
   {
     private GameAssetsCatalogue _gameAssetsCatalogue;
+
     protected override AssetReference _sceneLoadingReference => _gameAssetsCatalogue.loadingScreen;
 
     [Inject]
